@@ -1,0 +1,9 @@
+<md-card>
+  <form novalidate [formGroup]="form">
+    <input formControlName="title" placeholder="Movie title...">
+    <input formControlName="actor" placeholder="Actor...">
+  </form>
+</md-card>
+<md-card>
+  <md-card-title style="text-align: center">{{ result }}</md-card-title>
+</md-card>
