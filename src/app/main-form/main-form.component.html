@@ -1,8 +1,16 @@
 <md-card>
   <form novalidate [formGroup]="form">
-    <input formControlName="title" placeholder="Movie title...">
+    <input formControlName="title" placeholder="Movie title..." #titleQuery (keyup.enter)="getMovies(titleQuery.value)">
     <input formControlName="actor" placeholder="Actor...">
   </form>
+</md-card>
+<md-card *ngIf="movieResultsVisible">
+  <h2>{{ movieSearchResult.Title }} {{ movieSearchResult.Year }}</h2>
+  <p>Cast: {{ movieSearchResult.Actors }}</p>
+  <img src="{{movieSearchResult.Poster}}">
+</md-card>
+<md-card *ngIf="badRequest">
+  <md-card-title>Movie not found</md-card-title>
 </md-card>
 <md-card>
   <md-card-title style="text-align: center">{{ result }}</md-card-title>
